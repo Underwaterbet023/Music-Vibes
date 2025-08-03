@@ -1,0 +1,504 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5); /* Darken video for text readability */
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/dragon.jpeg');
+  background-size: cover;
+  background-position: center; */
+  color: #fff;
+  background: none;
+  
+}
+
+.main-content {
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+}
+
+.hero {
+  margin-bottom: 50px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.play-btn {
+  background-color: #f39c12;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.play-btn:hover {
+  background-color: #d35400;
+}
+.player {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  border: 2px solid #fff;
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(30px);
+  /* background: rgba(0, 0, 0, 0.7); */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-top: 120px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track-art {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s;
+}
+
+.now-playing {
+  font-size: 1rem;
+}
+
+.track-name {
+  font-size: 2.5rem;
+}
+
+.track-artist {
+  margin-top: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.slider_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+
+.seek_slider,
+.volume_slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: #83a9ff;
+  margin: 0 10px;
+  transition: opacity 0.2s;
+  width: 190px;
+}
+
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border: 2px solid #3774ff;
+  cursor: grab;
+  border-radius: 100%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.buttons div {
+  padding: 20px;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.buttons div:hover {
+  transform: scale(1.1);
+}
+
+.stroke {
+  background: #4286f4;
+  height: 100px;
+  width: 10px;
+  margin: 0 5px;
+  animation: animate 1.4s linear infinite;
+}
+
+.fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 0.5;
+  text-rendering: auto;
+}
+
+@keyframes animate {
+  50% {
+      height: 30px;
+      background-color: #f1f1f1;
+  }
+}
+
+.loader {
+  display: none; /* Hide loader by default */
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .track-name {
+      font-size: 2rem;
+  }
+
+  .track-artist {
+      font-size: 1.2rem;
+  }
+}
+
+/* Add this to your existing CSS */
+
+/* Adjust the logo and library button section */
+.wrapper1 {
+position: absolute;
+left: 20px;
+top: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.library-btn {
+background-color: rgba(0, 0, 0, 0.295);
+border: none;
+color: #fff;
+font-size: 1.2rem;
+margin-top: 230px;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.library-btn:hover {
+background-color: #4286f4;
+}
+
+/* Adjust the navbar */
+.navbar {
+position: fixed;
+right: 20px;
+top: 100px;
+/* background-color: rgba(0, 0, 0, 0.7); */
+border-radius: 10px;
+padding: 30px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 140px;
+height: 50%;
+width: 10%;
+justify-content: space-between; 
+backdrop-filter: blur(30px);
+}
+
+/* Ensure the track controls and play/pause button styles stay intact */
+.nav-btn {
+background: none;
+border: none;
+color: #fff;
+font-size: 1.5rem;
+margin: 10px 0;
+cursor: pointer;
+transition: color 0.3s;
+}
+
+.nav-btn:hover {
+color: #4286f4;
+}
+
+/* Make sure the playpause button remains responsive and functional */
+.playpause-track {
+cursor: pointer;
+transition: transform 0.2s ease;
+}
+
+.playpause-track:active {
+  transform: scale(0.9); /* Scale down when pressed */
+}
+
+.playpause-track .icon {
+  transition: transform 0.2s ease;
+}
+
+.playpause-track.playing .icon {
+  transform: rotate(360deg); /* Rotate the icon when playing */
+}
+
+/* Optional: Media query to ensure responsiveness */
+@media (max-width: 600px) {
+.wrapper1 {
+    left: 10px;
+    top: 10px;
+}
+
+
+
+}
+
+.logo {
+width: 200px;
+height: 200px; 
+margin-bottom: 20px;
+margin-right: 1700px;
+margin-top: 20px;
+}
+
+.music-library {
+display: none; /* Hidden by default */
+position: fixed;
+left: 155px; /* Adjust as necessary */
+top: 250px; /* Adjust as necessary */
+/* background-color: rgba(0, 0, 0, 0.8); */
+border-radius: 10px;
+padding: 20px;
+color: #fff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+width: 250px; /* Set width for the library */
+max-height: 400px; /* Limit height */
+overflow-y: auto; /* Scroll if necessary */
+backdrop-filter: blur(30px);
+}
+
+.music-library h2 {
+text-align: center;
+}
+
+#track-list {
+list-style-type: none; /* Remove bullet points */
+padding: 0; /* Remove padding */
+}
+
+.track-item {
+padding: 10px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.track-item:hover {
+background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover */
+}
+
+.top-navbar {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.top-nav-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 10px;
+}
+
+.top-nav-btn:hover {
+  color: #4286f4;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.tags-drawer {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.social-media {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-right: 1390px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+  
+  
+}
+
+.social-media a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #4286f4;
+}
+
+.search-bar {
+  display: none;
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 220px;
+  width: 320px;
+  margin-right: 145px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.534);
+}
+
+.search-bar input {
+  width: 200px;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  margin-top: 5px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #4286f49d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #3774ff;
+}
+
+/* Hidden by default */
+/* Hidden by default */
+.about-box {
+  position: fixed;
+  right: -100%; /* Offscreen initially */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  transition: right 0.3s ease-in-out; /* Smooth sliding */
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  margin-top: 820px;
+}
+
+.h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+/* When this class is added, the section slides into view */
+.about-box.show {
+  right: 0; /* Move into view */
+  margin-top: 9px;
+  margin-right: 180px;
+}
+
+.about-content {
+  padding: 60px;
+}
+
+.close-btn {
+  background-color: #4286f49a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.close-btn:hover {
+  background-color: #3774ff;
+}

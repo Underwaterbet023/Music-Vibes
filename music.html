@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/Images/MUSIC STUDIO 1.png" type="image/x-icon">
+
+</head>
+<body>
+    <div class="top-navbar">
+        <img src="assets/Images/MUSIC STUDIO 1.png" alt="Logo" class="logo">
+        <!-- <button onclick="toggleSearchBar()" class="top-nav-btn"><i class="fa fa-search"></i></button> -->
+    </div>
+    
+    <main class="main-content">
+        <section class="hero">
+            <h2>Your Gateway to Music Vibes</h2>
+            <p>Listen, Relax, and Enjoy</p>
+        </section>
+    </main>    
+    <!-- Tags Section -->
+    <div class="tags-drawer" id="tags-drawer">
+        <h2>Recently Played Songs</h2>
+        <ul id="played-songs-list"></ul>
+    </div>
+    
+    
+    <div class="player">
+        <video id="background-video" autoplay muted loop></video>
+        <div class="wrapper1">
+            <button onclick="toggleLibrary()" class="library-btn"><i class="fas fa-music"></i> Library</button>
+        </div>
+
+        <div class="wrapper">
+            <div class="details">
+                <div class="now-playing">PLAYING x OF y</div>
+                <div class="track-art"></div>
+                <div class="track-name">Track Name</div>
+                <div class="track-artist">Track Artist</div>
+            </div>
+
+            <div class="slider_container">
+                <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                <div class="total-duration">00:00</div>
+            </div>
+            <div class="slider_container">
+                <i class="fa fa-volume-down"></i>
+                <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                <i class="fa fa-volume-up"></i>
+            </div>
+            <div class="buttons">
+                <div class="random-track" onclick="randomTrack()">
+                    <i class="fas fa-random fa-2x" title="random"></i>
+                </div>
+                <div class="prev-track" onclick="prevTrack()">
+                    <i class="fa fa-step-backward fa-2x"></i>
+                </div>
+                <div class="playpause-track" onclick="playpauseTrack()">
+                    <i class="fa fa-play-circle fa-5x"></i>
+                </div>
+                <div class="next-track" onclick="nextTrack()">
+                    <i class="fa fa-step-forward fa-2x"></i>
+                </div>
+                <div class="repeat-track" onclick="repeatTrack()">
+                    <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <button onclick="window.location.href='index.html'" class="nav-btn">Home</button>
+            <button onclick="prevTrack()" class="nav-btn"><i class="fa fa-step-backward"></i></button>
+            <button onclick="playpauseTrack()" class="nav-btn"><i class="fa fa-play-circle"></i></button>
+            <button onclick="nextTrack()" class="nav-btn"><i class="fa fa-step-forward"></i></button>
+            <!-- About Me Side View Box -->
+            <div id="about-box" class="about-box">
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <p>Hi, I'm Sanskar Kumar, and this is my music player web app! I love creating immersive experiences for music lovers, combining technology and design to deliver the best sound and visuals. Stay tuned for more features and enjoy the music!</p>
+                    <button class="close-btn" onclick="closeAbout()">Close</button>
+                </div>
+            </div>
+            
+            <!-- In the navbar -->
+            <button onclick="openAbout()" class="nav-btn"><i class="fa fa-info-circle"></i></button>
+    
+            <button onclick="toggleLibrary()" class="nav-btn library-btn"><i class="fas fa-music"></i></button>
+            <button class="nav-btn search-icon" onclick="toggleSearchBar()"><i class="fa fa-search"></i></button>
+            <div class="search-bar" id="search-bar">
+                <input type="text" id="search-input" placeholder="Search for a song...">
+                <button class="search-btn" onclick="searchSong()">Search</button>
+            </div>
+            
+            <div class="social-media">
+                <a href="https://www.facebook.com/profile.php?id=100095307382889" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.instagram.com/mainhoonsanskar" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://github.com/Underwaterbet023" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.youtube.com/@SanskarKumar-i1s" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+            </div>
+            
+        </div>
+        
+        <!-- Music Library Section -->
+        <div class="music-library" id="music-library">
+            <h2>Music Library</h2>
+            <ul id="track-list"></ul>
+        </div>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+</html>
